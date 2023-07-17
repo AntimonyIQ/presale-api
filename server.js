@@ -11,7 +11,7 @@ const app = require('./app');
 const ip = require('./ip');
 const qrcode = require('qrcode-terminal');
 
-const PORT = 3200;
+const PORT = 3110;
 
 mongoose.connection.once('open', () => {
     console.log('Facing issues: SCAN ME');
