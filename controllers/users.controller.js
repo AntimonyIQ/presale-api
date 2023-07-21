@@ -85,11 +85,10 @@ async function deleteUser(req, res) {
 
 async function updateUser(req, res) {
     try {
-        const userId = req.params.id;
-        const { balance, total_ref } = req.body;
+        const { wallet, balance, total_ref } = req.body;
 
         // Check if required fields are present and non-empty
-        if (!balance || !total_ref || typeof balance !== 'number' || typeof total_ref !== 'number') {
+        if (!wallet || !balance || !total_ref || typeof balance !== 'number' || typeof total_ref !== 'number' || balance < 0 || total_ref < 0) {
             const data = {
                 success: false,
                 message: 'Invalid or missing fields',
@@ -99,7 +98,7 @@ async function updateUser(req, res) {
         }
 
         // Update the user
-        const user = await User.findByIdAndUpdate(userId, { balance, total_ref }, { new: true });
+        const user = await User.findOneAndUpdate({ wallet: wallet }, { balance, total_ref }, { new: true });
 
         if (!user) {
             const data = {

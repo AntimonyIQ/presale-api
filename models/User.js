@@ -17,7 +17,7 @@ const userSchema = new Schema({
     total_ref: {
         type: Number,
         default: 0
-    },
+    }, 
 });
 
 const User = mongoose.model('User', userSchema);
