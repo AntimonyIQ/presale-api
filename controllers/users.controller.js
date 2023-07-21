@@ -98,7 +98,11 @@ async function updateUser(req, res) {
         }
 
         // Update the user
-        const user = await User.findOneAndUpdate({ wallet: wallet }, { balance, total_ref }, { new: true });
+        const user = await User.findOneAndUpdate(
+            { wallet: wallet },
+            { $inc: { balance: balance, total_ref: total_ref } },
+            { new: true }
+        );
 
         if (!user) {
             const data = {
