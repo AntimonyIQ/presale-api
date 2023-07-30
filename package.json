@@ -1,7 +1,7 @@
 {
-    "name": "farmlify",
+    "name": "lendxsaleapi",
     "version": "1.0.0",
-    "description": "farmlify API client",
+    "description": "lendx sales api client",
     "main": "server.js",
     "scripts": {
         "test": "jest",
