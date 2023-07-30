@@ -15,7 +15,7 @@ async function getAllUsers(req, res) {
         const data = {
             success: false,
             message: 'Error retrieving wallets',
-            data: []
+            error: error.message
         }
         res.status(500).json(data);
     }
